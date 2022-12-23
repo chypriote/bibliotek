@@ -17,5 +17,7 @@
 </script>
 
 <style scoped>
-.row + .row {margin-top: 1rem;}
+.row + .row {
+	margin-top: 1rem;
+}
 </style>
