@@ -15,12 +15,17 @@
     "*.{css,vue}": "stylelint --cache --ignore-path .gitignore **/*.{css,vue}"
   },
   "dependencies": {
-    "date-fns": "^2.29"
+    "@nuxtjs/robots": "^3.0",
+    "date-fns": "^2.29",
+    "nuxt": "^3.0",
+    "reset-css": "^5.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.3",
     "@commitlint/config-conventional": "^17.3",
+    "@nuxt/image-edge": "^1.0.0-27840416.dc1ed65",
     "@nuxtjs/eslint-config-typescript": "^12.0",
+    "@nuxtjs/google-fonts": "^3.0.0-1",
     "@typescript-eslint/eslint-plugin": "^5.47",
     "@typescript-eslint/parser": "^5.47",
     "eslint": "^8.30",
@@ -28,11 +33,10 @@
     "eslint-plugin-vue": "^9.8.0",
     "husky": "^8.0",
     "lint-staged": "^13.1",
-    "nuxt": "^3.0",
-    "postcss-html": "^1.5.0",
+    "nuxt-purgecss": "^2.0",
+    "postcss-html": "^1.5",
     "postcss-import": "^15.1",
     "postcss-nested": "^6.0",
-    "reset-css": "^5.0",
     "stylelint": "^14.16",
     "stylelint-config-standard": "^29.0",
     "vite-plugin-eslint": "^1.8",

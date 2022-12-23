@@ -8,6 +8,7 @@ export default defineNuxtConfig({
 	app: {
 		head: {
 			title: 'Musique',
+			htmlAttrs: { lang: 'fr' },
 		},
 	},
 	css: [
@@ -26,4 +27,14 @@ export default defineNuxtConfig({
 			'postcss-nested': {},
 		},
 	},
+	modules: [
+		'@nuxt/image-edge',
+		['@nuxtjs/google-fonts', {
+			families: {
+				Lato: { wght: [300, 400, 700], ital: [300, 400, 700] },
+			},
+		}],
+		'nuxt-purgecss',
+		// '@nuxtjs/robots',
+	],
 })
