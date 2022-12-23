@@ -11,8 +11,8 @@
     "release": "standard-version"
   },
   "lint-staged": {
-    "*.{js,vue,ts}": "eslint --cache --fix",
-    "*.{css,vue}": "stylelint --fix"
+    "*.{js,vue,ts}": "eslint --cache --ext .js,.vue,.ts --ignore-path .gitignore .",
+    "*.{css,vue}": "stylelint --cache --ignore-path .gitignore **/*.{css,vue}"
   },
   "dependencies": {
     "date-fns": "^2.29"
@@ -21,10 +21,11 @@
     "@commitlint/cli": "^17.3",
     "@commitlint/config-conventional": "^17.3",
     "@nuxtjs/eslint-config-typescript": "^12.0",
-    "@nuxtjs/eslint-module": "^3.1",
-    "@nuxtjs/stylelint-module": "^4.1",
+    "@typescript-eslint/eslint-plugin": "^5.47",
+    "@typescript-eslint/parser": "^5.47",
     "eslint": "^8.30",
-    "eslint-plugin-vue": "^9.8",
+    "eslint-plugin-nuxt": "^4.0.0",
+    "eslint-plugin-vue": "^9.8.0",
     "husky": "^8.0",
     "lint-staged": "^13.1",
     "nuxt": "^3.0",
@@ -33,7 +34,9 @@
     "postcss-nested": "^6.0",
     "reset-css": "^5.0",
     "stylelint": "^14.16",
-    "stylelint-config-standard": "^29.0"
+    "stylelint-config-standard": "^29.0",
+    "vite-plugin-eslint": "^1.8",
+    "vite-plugin-stylelint": "^4.1"
   },
   "peerDependencies": {
     "postcss": "^8.4"

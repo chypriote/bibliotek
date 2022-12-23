@@ -1,14 +1,19 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+import eslintPlugin from 'vite-plugin-eslint'
+import StylelintPlugin from 'vite-plugin-stylelint'
+
 export default defineNuxtConfig({
 	telemetry: false,
 	css: [
 		'reset-css/reset.css',
 		'@/assets/app.css',
 	],
-	modules: [
-		['@nuxtjs/eslint-module', { cache: true, fix: true }],
-		['@nuxtjs/stylelint-module', { fix: true }],
-	],
+	vite: {
+		plugins: [
+			eslintPlugin({ cache: true, fix: true }),
+			StylelintPlugin({ fix: true }),
+		],
+	},
 	postcss: {
 		plugins: {
 			'postcss-import': {},
