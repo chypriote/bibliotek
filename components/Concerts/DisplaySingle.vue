@@ -1,23 +1,37 @@
 <template>
 	<div class="row">
 		<div class="col-4">
-			<nuxt-img
-				src="https://erdorin.org/wp-content/uploads/2022/11/avantasia-a-paranormal-evening-with-the-moonflower-society.jpg"
+			<img
+				v-if="concert.picture"
+				:src="useAsset(concert.picture)"
 				class="avatar"
-				alt="Vinyle Name"
+				:alt="concert.title"
 			/>
 		</div>
 		<div class="col-8">
 			<div class="name">
-				<p class="text-accent font-heavy text-bigger">Artiste name</p>
-				<p class="text-muted">L'Olympia</p>
+				<p class="text-accent font-heavy text-bigger">{{ concert.title }}</p>
+				<p class="text-muted">{{ concert.location }}</p>
 			</div>
-			<p class="text-small  text-muted">1 mars 2023</p>
+			<p class="text-small  text-muted">{{ format(new Date(concert.date), 'dd/MM/yyyy') }}</p>
 		</div>
 	</div>
 </template>
 
-<script lang="ts">
+<script lang="ts" setup>
+import { format } from 'date-fns'
+import { Concert } from '~/types/Concert'
+function useAsset (path: string): string {
+	const assets = import.meta.glob('~/assets/**/*', {
+		eager: true,
+		import: 'default',
+	})
+	// @ts-expect-error: wrong type info
+	return assets['/assets/concerts/' + path]
+}
+defineProps<{
+	concert: Concert
+}>()
 </script>
 
 <style scoped>
@@ -29,6 +43,8 @@
 	line-height: 1;
 	overflow: hidden;
 	border-radius: 50%;
+	height: 100%;
+	object-fit: cover;
 }
 .name {
 	display: flex;

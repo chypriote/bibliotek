@@ -2,9 +2,9 @@
 	<div class="card">
 		<h4 class="card-title">Wishlist vinyles</h4>
 		<div class="card-content">
+			<!-- <vinyles-display-single />
 			<vinyles-display-single />
-			<vinyles-display-single />
-			<vinyles-display-single />
+			<vinyles-display-single /> -->
 		</div>
 		<div class="card-actions">
 			<nuxt-link to="vinyles/wishlist">Liste</nuxt-link>

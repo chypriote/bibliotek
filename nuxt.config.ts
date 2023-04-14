@@ -1,7 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 import eslintPlugin from 'vite-plugin-eslint'
 import StylelintPlugin from 'vite-plugin-stylelint'
-
+import { defineNuxtConfig } from 'nuxt/config'
 export default defineNuxtConfig({
 	telemetry: false,
 	ssr: false,
@@ -35,6 +35,7 @@ export default defineNuxtConfig({
 			},
 		}],
 		'nuxt-purgecss',
+		'@nuxt/content',
 		// '@nuxtjs/robots',
 	],
 })
