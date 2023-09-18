@@ -2,9 +2,11 @@
 	<div class="card">
 		<h4 class="card-title">Derniers vinyles</h4>
 		<div class="card-content">
-			<template v-for="(vinyle, id) of vinyles" :key="id">
-				<vinyles-display-single :vinyle="vinyle" />
-			</template>
+			<div class="row">
+				<div v-for="(vinyle, id) of vinyles" :key="id" class="col col-3">
+					<vinyles-display-single :vinyle="vinyle" />
+				</div>
+			</div>
 		</div>
 		<div class="card-actions">
 			<nuxt-link to="vinyles/collection">Liste</nuxt-link>
@@ -21,7 +23,7 @@ interface MyCustomParsedContent extends ParsedContent {
 }
 const { data: vinyles } = await useAsyncData(
 	'latest-vinyles',
-	() => queryContent<MyCustomParsedContent>('vinyles').sort({ date: -1 }).limit(5).find()
+	() => queryContent<MyCustomParsedContent>('vinyles').sort({ date: -1 }).limit(8).find()
 )
 
 </script>

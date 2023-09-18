@@ -2,9 +2,11 @@
 	<div class="card">
 		<h4 class="card-title">Derniers concerts</h4>
 		<div class="card-content">
-			<template v-for="(concert, id) of concerts" :key="id">
-				<concerts-display-single :concert="concert" />
-			</template>
+			<div class="row">
+				<div v-for="(concert, id) of concerts" :key="id" class="col col-3">
+					<concerts-display-single :concert="concert" />
+				</div>
+			</div>
 		</div>
 	</div>
 </template>

@@ -13,7 +13,6 @@ module.exports = {
 		'plugin:vue/vue3-strongly-recommended',
 	],
 	plugins: [
-		'vue',
 		'@typescript-eslint',
 	],
 	rules: {

@@ -1,6 +1,6 @@
 <template>
-	<div class="row">
-		<div class="col-4">
+	<div class="row concert">
+		<div class="col col-4">
 			<img
 				v-if="concert.picture"
 				:src="useAsset(concert.picture)"
@@ -35,6 +35,9 @@ defineProps<{
 </script>
 
 <style scoped>
+.concert {
+	margin-bottom: 1rem;
+}
 .avatar {
 	background-color: #fff;
 	box-shadow: 0 0 0 1px #1b1f2426;
@@ -48,6 +51,7 @@ defineProps<{
 }
 .name {
 	display: flex;
+	flex-grow: 1;
 	flex-direction: column;
 	margin-bottom: .5rem;
 	line-height: 1.1;

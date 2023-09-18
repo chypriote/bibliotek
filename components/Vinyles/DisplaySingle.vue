@@ -1,25 +1,34 @@
 <template>
-	<div class="row">
+	<div class="row vinyle">
 		<div class="col col-4">
 			<img
 				v-if="vinyle.picture"
-				:src="useAsset(vinyle.picture + '.jpg')"
+				:src="useAsset(vinyle.picture)"
 				class="avatar"
 				:alt="vinyle.album"
 			/>
 		</div>
 		<div class="col col-8">
 			<div class="vl-details">
-				<p class="text-accent font-heavy text-bigger" :class="{'vl-name': vinyle.album.length > 20}">{{ vinyle.album }}</p>
+				<p class="text-accent font-heavy text-bigger" :class="{'vl-name': vinyle.album.length > 15}">{{ vinyle.album }}</p>
 				<p class="">{{ vinyle.artist }}</p>
 			</div>
 			<p v-if="vinyle.note" class="text-small text-muted">{{ vinyle.note }}</p>
+			<div v-if="vinyle.date">{{ formatTime(vinyle.date) }}</div>
 		</div>
 	</div>
 </template>
 
 <script lang="ts" setup>
+import { format } from 'date-fns'
 import { Vinyle } from '~/types/Vinyle'
+defineProps<{
+	vinyle: Vinyle
+}>()
+
+function formatTime (date: string): string {
+	return format(new Date(date), 'yyyy-MM-dd')
+}
 
 function useAsset (path: string): string {
 	const assets = import.meta.glob('~/assets/**/*', {
@@ -29,12 +38,12 @@ function useAsset (path: string): string {
 	// @ts-expect-error: wrong type info
 	return assets['/assets/vinyles/' + path]
 }
-defineProps<{
-	vinyle: Vinyle
-}>()
 </script>
 
 <style scoped>
+.vinyle {
+	margin-bottom: 1rem;
+}
 .col {
 	padding-right: calc(var(--grid-gutter-width) / 4);
 	padding-left: calc(var(--grid-gutter-width) / 4);
@@ -51,6 +60,7 @@ defineProps<{
 }
 .vl-details {
 	display: flex;
+	flex-grow: 1;
 	flex-direction: column;
 	margin-bottom: .5rem;
 	line-height: 1.1;

@@ -1,7 +1,7 @@
 export type Vinyle = {
 	artist: string
 	album: string
-	date: Date
+	date: string
 	origin: string
 	picture?: string
 	price: number

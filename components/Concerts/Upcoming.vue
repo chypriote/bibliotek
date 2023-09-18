@@ -6,6 +6,9 @@
 				<concerts-display-single :concert="concert" />
 			</template>
 		</div>
+		<div class="card-action">
+			<nuxt-link to="concerts">Concerts</nuxt-link>
+		</div>
 	</div>
 </template>
 
